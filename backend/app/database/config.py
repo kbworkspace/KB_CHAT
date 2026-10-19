@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     )
     # App release version (single source of truth, surfaced via /api/health
     # and shown in Settings → App info). Bump with every release.
-    APP_VERSION: str = "1.2.0"
+    APP_VERSION: str = "1.2.1"
     UPLOAD_DIR: str = "./uploads"
     MAX_UPLOAD_SIZE_MB: int = 15
     APP_ENV: str = "development"

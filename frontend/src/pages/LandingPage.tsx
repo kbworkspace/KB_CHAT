@@ -15,7 +15,7 @@ const SPLINE_SCENE = import.meta.env.VITE_SPLINE_SCENE_URL as string | undefined
 const RIVE_SRC = import.meta.env.VITE_RIVE_SRC as string | undefined
 
 // Free Android build (signed APK, GitHub Release asset — no Play account needed).
-const APK_VERSION = '1.2.0'
+const APK_VERSION = '1.2.1'
 const APK_URL = `https://github.com/kbwebsite/KB_CHAT/releases/download/v${APK_VERSION}/kryzen-v${APK_VERSION}.apk`
 
 function usePrefersReducedMotion() {
@@ -202,7 +202,7 @@ export default function LandingPage() {
               <img src="/kryzen-logo.svg" alt="" className="w-9 h-9 rounded-xl" />
               <span className="font-bold text-lg tracking-tight lp-brand">Kryzen</span>
             </Link>
-            <span className="hidden sm:inline text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">V1.2</span>
+            <span className="hidden sm:inline text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">V1.2.1</span>
             {RIVE_SRC ? (
               <Suspense fallback={null}>
                 <RiveBadge src={RIVE_SRC} />
