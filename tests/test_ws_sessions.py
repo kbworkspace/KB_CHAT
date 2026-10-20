@@ -188,3 +188,19 @@ def test_manager_sweep_scoped_to_sid():
     n = asyncio.run(go())
     assert n == 2
     assert sorted(closed) == [("a1", 4401), ("a2", 4401)]
+
+
+def test_spawn_without_event_loop_closes_coroutine(monkeypatch):
+    """A missing/closed loop must not leak a never-awaited coroutine."""
+    from app.websocket.manager import manager as mgr
+
+    monkeypatch.setattr(mgr, "_loop", None, raising=False)
+    ran = []
+
+    async def work():
+        ran.append(1)
+
+    coro = work()
+    mgr.spawn(coro)
+    assert coro.cr_frame is None  # closed, not left pending
+    assert ran == []

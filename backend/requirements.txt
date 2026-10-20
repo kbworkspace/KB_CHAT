@@ -27,6 +27,8 @@ webauthn==3.0.1
 # Push notifications via FCM HTTP v1 (OAuth2 service-account minting)
 google-auth
 requests
+# Sentry error reporting (FastAPI/Starlette integration). No-op without a DSN.
+sentry-sdk[fastapi]>=2.20,<3
 # AI agent / code-index subsystem (imported lazily; pinned to cp311-compatible
 # wheels for python:3.11-slim — numpy 2.5.x has no cp311 wheel)
 numpy==2.2.6

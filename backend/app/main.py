@@ -9,6 +9,11 @@ from app.database.config import settings
 # Ensure upload dir exists
 os.makedirs(settings.upload_dir_abs, exist_ok=True)
 
+# Error reporting must start before any request is served.
+from app.observability import init_sentry  # noqa: E402
+
+init_sentry()
+
 
 @asynccontextmanager
 async def lifespan(app):

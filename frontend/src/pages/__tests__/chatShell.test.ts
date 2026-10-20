@@ -182,12 +182,13 @@ describe('ChatPage dismissal order', () => {
     await act(async () => {})
     click(host.querySelector('button[aria-label="More options"]')!)
     const item = Array.from(host.querySelectorAll('button')).find(
-      (b) => b.getAttribute('role') === 'menuitem' && (b.textContent || '').includes('Reminders'),
+      (b) => b.getAttribute('role') === 'menuitem' && (b.textContent || '').includes('Saved messages'),
     )!
+    expect(item).not.toBeUndefined()
     click(item)
-    expect(host.textContent).toContain('No reminders yet')
+    expect(host.querySelector('[role="dialog"][aria-label="Saved messages"]')).not.toBeNull()
     esc()
-    expect(host.textContent).not.toContain('No reminders yet')
+    expect(host.querySelector('[role="dialog"][aria-label="Saved messages"]')).toBeNull()
   })
 
   it('Escape closes the lightbox before the search beneath it', async () => {

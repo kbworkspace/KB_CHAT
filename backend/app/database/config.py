@@ -33,6 +33,11 @@ class Settings(BaseSettings):
     # App release version (single source of truth, surfaced via /api/health
     # and shown in Settings → App info). Bump with every release.
     APP_VERSION: str = "1.2.2"
+    # Sentry error reporting. Unset DSN = disabled (dev/tests stay silent).
+    # Traces are opt-in because they cost quota; 0.0 captures errors only.
+    SENTRY_DSN: str = ""
+    SENTRY_ENVIRONMENT: str = ""
+    SENTRY_TRACES_SAMPLE_RATE: float = 0.0
     UPLOAD_DIR: str = "./uploads"
     MAX_UPLOAD_SIZE_MB: int = 15
     APP_ENV: str = "development"

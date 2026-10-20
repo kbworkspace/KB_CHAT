@@ -51,14 +51,21 @@ class ConnectionManager:
             return
         except RuntimeError:
             pass
-        if self._loop is not None:
+        loop = self._loop
+        if loop is not None and not loop.is_closed():
             try:
-                asyncio.run_coroutine_threadsafe(coro, self._loop)
+                asyncio.run_coroutine_threadsafe(coro, loop)
                 return
             except Exception as e:
                 logger.error(f"Background schedule failed: {e}")
-                return
-        logger.error("No event loop to schedule background task on")
+        else:
+            logger.error("No event loop to schedule background task on")
+        # Nothing will ever await this coroutine. Close it so Python does not
+        # emit "coroutine ... was never awaited" and leak its frame.
+        try:
+            coro.close()
+        except Exception:
+            pass
 
     async def connect(self, websocket: WebSocket, user_id: int, sid: str = None):
         await websocket.accept()
