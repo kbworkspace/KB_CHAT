@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     )
     # App release version (single source of truth, surfaced via /api/health
     # and shown in Settings → App info). Bump with every release.
-    APP_VERSION: str = "1.2.1"
+    APP_VERSION: str = "1.2.2"
     UPLOAD_DIR: str = "./uploads"
     MAX_UPLOAD_SIZE_MB: int = 15
     APP_ENV: str = "development"
@@ -45,6 +45,11 @@ class Settings(BaseSettings):
     AI_MODEL: str = "gpt-4o-mini"
     AI_BASE_URL: str = "https://api.openai.com/v1"
     AI_PROVIDER: str = "mock"
+    # revChatGPT (uses your ChatGPT web account — no OpenAI API key needed)
+    REVCHATGPT_ACCESS_TOKEN: str = ""
+    REVCHATGPT_EMAIL: str = ""
+    REVCHATGPT_PASSWORD: str = ""
+    REVCHATGPT_MODEL: str = "gpt-4o-mini"
     # Per-provider keys for the in-app model picker (dashboard-managed
     # secrets — never commit values). Each enables one named backend.
     GROQ_API_KEY: str = ""
