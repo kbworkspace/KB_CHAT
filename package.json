@@ -1,0 +1,27 @@
+{
+  "name": "kb-chat",
+  "version": "1.0.0",
+  "description": "A fast, modern real-time messaging platform built with **FastAPI + React**. Kryzen provides secure 1-to-1 and group conversations, instant WebSocket messaging, typing indicators, presence, file sharing, voice/video calls, stories, polls, and a polished responsive UI.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@dodopayments/opencode-plugin": "^0.6.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbworkspace/KB_CHAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kbworkspace/KB_CHAT/issues"
+  },
+  "homepage": "https://github.com/kbworkspace/KB_CHAT#readme"
+}

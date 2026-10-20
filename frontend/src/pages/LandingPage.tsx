@@ -16,7 +16,7 @@ const RIVE_SRC = import.meta.env.VITE_RIVE_SRC as string | undefined
 
 // Free Android build (signed APK, GitHub Release asset — no Play account needed).
 const APK_VERSION = '1.2.2'
-const APK_URL = `https://github.com/kbwebsite/KB_CHAT/releases/download/v${APK_VERSION}/kryzen-v${APK_VERSION}.apk`
+const APK_URL = `https://github.com/kbworkspace/KB_CHAT/releases/download/v${APK_VERSION}/kryzen-v${APK_VERSION}.apk`
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false)
